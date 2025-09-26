@@ -1,0 +1,17 @@
+import requests              # lets us download web pages
+from bs4 import BeautifulSoup  # helps us read HTML
+
+url = "https://example.com"
+
+# Step 1: Download the webpage
+response = requests.get(url)       # send a request to the website
+html = response.text               # get the page content as text
+
+# Step 2: Parse the HTML
+soup = BeautifulSoup(html, "html.parser")   # make HTML easy to search
+
+# Step 3: Find the title of the page
+title = soup.title.string           # get the text inside title
+
+# Step 4: Show the result
+print("Page title:", title)
